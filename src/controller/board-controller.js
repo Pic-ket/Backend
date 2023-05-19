@@ -24,8 +24,8 @@ console.log("isReached??");
 // /를 가지고 있고,
 router.get("/feed", async (req, res, next) => {
   console.log(req.headers.origin);
-  if (host.includes(req.headers.origin))
-    header["Access-Control-Allow-Origin"] = req.headers.origin;
+  //   if (host.includes(req.headers.origin))
+  //     header["Access-Control-Allow-Origin"] = req.headers.origin;
 
   params.id = req.query.id;
   let rows = await service.getFeed(params, res, next); //service모듈의 getFeed함수를 이용해서 DB쿼리날린후, 정보를 가져온다
@@ -34,8 +34,8 @@ router.get("/feed", async (req, res, next) => {
 
 router.get("/tag", async (req, res, next) => {
   console.log(req.headers.origin);
-  if (host.includes(req.headers.origin))
-    header["Access-Control-Allow-Origin"] = req.headers.origin; //Q.이게 뭔지 파악
+  //   if (host.includes(req.headers.origin))
+  //     header["Access-Control-Allow-Origin"] = req.headers.origin; //Q.이게 뭔지 파악
 
   params.id = req.query.id;
   let rows = await service.getTag(params, res, next);
