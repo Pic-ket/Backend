@@ -1,6 +1,6 @@
 CREATE DATABASE insnote;
 
-CREATE TABLE user(
+CREATE TABLE token(
     tokenId INT,
     userAddress VARCHAR(255),
     tokenUrl VARCHAR(50) NOT NULL, 
@@ -11,6 +11,6 @@ CREATE TABLE user(
     PRIMARY KEY(tokenId)
 );
 
-INSERT INTO user (tokenId, userAddress, tokenUrl, tokenImage, isChanged, mintTime, updateTime) VALUES
+INSERT INTO token (tokenId, userAddress, tokenUrl, tokenImage, isChanged, mintTime, updateTime) VALUES
 -- 나라
 (1,"test", "test", "test",0, "1997-01-01 00:00:01", "1997-01-01 00:00:01");

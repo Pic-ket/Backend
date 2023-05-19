@@ -22,23 +22,23 @@ const host = [
 ];
 console.log("isReached??");
 // /를 가지고 있고,
-router.get("/user", async (req, res, next) => {
+router.get("/status", async (req, res, next) => {
   console.log(req.headers.origin);
   //   if (host.includes(req.headers.origin))
   //     header["Access-Control-Allow-Origin"] = req.headers.origin;
 
   params.tokenId = req.query.tokenId;
-  let rows = await service.getUser(params, res, next); //service모듈의 getFeed함수를 이용해서 DB쿼리날린후, 정보를 가져온다
+  let rows = await service.getStatus(params, res, next); //service모듈의 getFeed함수를 이용해서 DB쿼리날린후, 정보를 가져온다
   return res.header(header).json(rows); //그걸 json으로 ~, response를 보낸다.
 });
 
-router.get("/tag", async (req, res, next) => {
+router.get("/tokenInfo", async (req, res, next) => {
   console.log(req.headers.origin);
   //   if (host.includes(req.headers.origin))
   //     header["Access-Control-Allow-Origin"] = req.headers.origin; //Q.이게 뭔지 파악
 
-  params.id = req.query.id;
-  let rows = await service.getTag(params, res, next);
+  //   params.id = req.query.id;
+  let rows = await service.getTokenInfo(params, res, next);
   return res.header(header).json(rows);
 });
 
