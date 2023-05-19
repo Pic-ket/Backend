@@ -32,10 +32,12 @@ app.use(
     extended: true,
   })
 );
+console.log("isReached");
 
 // 라우터
 //기본 경로에 진입했을 경우 실행
 app.use("/", controller);
+console.log("isReached?");
 
 //아래의 httpServer코드는 app.코드와 별개로 진행되기때문에 404not found가 발생하지 않아도, 아래 코드가 진행되는 것인지
 // 위에서부터 순서대로 처리하므로 여기까지 왔다면 404 not found
