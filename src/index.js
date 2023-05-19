@@ -57,8 +57,8 @@ app.get((req, res) => {
 var httpServer = http.createServer(app);
 // var httpsServer = https.createServer(options, app);
 //8080포트에서 대기중
-httpServer.listen(8080, () => {
-  console.log(`server is listening at 8080`);
+httpServer.listen(80, () => {
+  console.log(`server is listening at 80`);
 });
 // httpsServer.listen(port, () => {
 //     console.log(`server is listening at ${process.env.HOST}`);
