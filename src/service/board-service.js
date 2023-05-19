@@ -2,10 +2,10 @@ import query from "../query/board-query.js";
 import pool from "../database/pool.js";
 
 const service = {
-  getFeed: async (req, res, next) => {
+  getUser: async (req, res, next) => {
     console.log("isReached???");
 
-    let result = await pool.query(query.getFeed, [req.id]);
+    let result = await pool.query(query.getUser, [req.tokenId]);
     console.log(result[0]);
     return result[0];
   },

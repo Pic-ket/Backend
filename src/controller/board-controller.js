@@ -4,7 +4,7 @@ import service from "../service/board-service.js";
 const router = express.Router();
 
 const params = {
-  id: "",
+  tokenId: "",
 };
 
 const header = {
@@ -22,13 +22,13 @@ const host = [
 ];
 console.log("isReached??");
 // /를 가지고 있고,
-router.get("/feed", async (req, res, next) => {
+router.get("/user", async (req, res, next) => {
   console.log(req.headers.origin);
   //   if (host.includes(req.headers.origin))
   //     header["Access-Control-Allow-Origin"] = req.headers.origin;
 
-  params.id = req.query.id;
-  let rows = await service.getFeed(params, res, next); //service모듈의 getFeed함수를 이용해서 DB쿼리날린후, 정보를 가져온다
+  params.tokenId = req.query.tokenId;
+  let rows = await service.getUser(params, res, next); //service모듈의 getFeed함수를 이용해서 DB쿼리날린후, 정보를 가져온다
   return res.header(header).json(rows); //그걸 json으로 ~, response를 보낸다.
 });
 
