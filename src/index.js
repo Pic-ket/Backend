@@ -50,12 +50,12 @@ app.get((req, res) => {
 //     cert: fs.readFileSync("./certificate.crt", "utf8"),
 //     ca: fs.readFileSync("./ca_bundle.crt", "utf8"),
 // };
-// var httpServer = http.createServer(app);
-var httpsServer = https.createServer(app);
+var httpServer = http.createServer(app);
+// var httpsServer = https.createServer(app);
 
-// httpServer.listen(8080, () => {
-//   console.log(`server is listening at 8080`);
-// });
-httpsServer.listen(port, () => {
+httpServer.listen(8080, () => {
   console.log(`server is listening at 8080`);
 });
+// httpsServer.listen(port, () => {
+//   console.log(`server is listening at 8080`);
+// });
