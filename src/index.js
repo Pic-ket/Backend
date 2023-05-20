@@ -45,17 +45,17 @@ app.get((req, res) => {
 // app.listen(port, () => {
 //     console.log(`server is listening at ${process.env.HOST}`);
 // // });
-// var options = {
-//     key: fs.readFileSync("./private.key", "utf8"),
-//     cert: fs.readFileSync("./certificate.crt", "utf8"),
-//     ca: fs.readFileSync("./ca_bundle.crt", "utf8"),
-// };
-var httpServer = http.createServer(app);
-// var httpsServer = https.createServer(app);
+var options = {
+  key: fs.readFileSync("./private.key", "utf8"),
+  cert: fs.readFileSync("./certificate.crt", "utf8"),
+  ca: fs.readFileSync("./ca_bundle.crt", "utf8"),
+};
+// var httpServer = http.createServer(app);
+var httpsServer = https.createServer(app, options);
 
-httpServer.listen(8080, () => {
-  console.log(`server is listening at 8080`);
-});
-// httpsServer.listen(port, () => {
+// httpServer.listen(8080, () => {
 //   console.log(`server is listening at 8080`);
 // });
+httpsServer.listen(port, () => {
+  console.log(`server is listening at 8080`);
+});
