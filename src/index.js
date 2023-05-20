@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import https from "https";
 import http from "http";
 import dotenv from "dotenv";
@@ -10,6 +11,7 @@ dotenv.config();
 const app = express();
 
 const port = process.env.PORT || 8080;
+app.use(cors());
 
 // const server = https.createServer(app);
 // morgan : 로그를 좀 더 예쁘게 찍어주는 라이브러리
@@ -32,15 +34,9 @@ app.use(
     extended: true,
   })
 );
-console.log("isReached");
 
-// 라우터
-//기본 경로에 진입했을 경우 실행
 app.use("/", controller);
-console.log("isReached?");
 
-//아래의 httpServer코드는 app.코드와 별개로 진행되기때문에 404not found가 발생하지 않아도, 아래 코드가 진행되는 것인지
-// 위에서부터 순서대로 처리하므로 여기까지 왔다면 404 not found
 app.get((req, res) => {
   res.status(404).send("not found");
 });
@@ -56,7 +52,7 @@ app.get((req, res) => {
 // };
 var httpServer = http.createServer(app);
 // var httpsServer = https.createServer(options, app);
-//8080포트에서 대기중
+
 httpServer.listen(8080, () => {
   console.log(`server is listening at 8080`);
 });

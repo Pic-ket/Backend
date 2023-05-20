@@ -12,5 +12,4 @@ CREATE TABLE token(
 );
 
 INSERT INTO token (tokenId, userAddress, tokenUrl, tokenImage, isChanged, mintTime, updateTime) VALUES
--- 나라
 (1,"test", "test", "test",0, "1997-01-01 00:00:01", "1997-01-01 00:00:01");

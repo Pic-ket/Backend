@@ -20,8 +20,6 @@ const host = [
   "http://3.144.88.207:443",
   "",
 ];
-console.log("isReached??");
-// /를 가지고 있고,
 
 router.get("/tokenInfo", async (req, res, next) => {
   console.log(req.headers.origin);
@@ -38,7 +36,6 @@ router.get("/status", async (req, res, next) => {
   //   if (host.includes(req.headers.origin))
   //     header["Access-Control-Allow-Origin"] = req.headers.origin; //Q.이게 뭔지 파악
 
-  //   params.id = req.query.id;
   let rows = await service.getStatus(params, res, next);
   return res.header(header).json(rows);
 });
